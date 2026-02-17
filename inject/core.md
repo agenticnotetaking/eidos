@@ -18,6 +18,16 @@ See [[spec - eidos - spec driven development loops]].
 Specs describe timeless intent; plans describe time-bound work; code is the result.
 See [[c - the spec describes the full vision - versioning is for the procedural plan]].
 
+### Resolving Documents
+
+Eidos runs as a plugin — its internal files and the user's project files live in different directories.
+
+- **User repository:** `eidos/` (project specs, claims) and `memory/` (plans, sessions, decisions) — these are the user's own files.
+- **Plugin directory:** templates, skills, inject rules, and eidos's own specs and claims — these ship with the plugin.
+
+When resolving a wiki link like `[[template - plan - ...]]` or `[[spec - eidos - ...]]`, check the plugin directory first for eidos-internal documents, then the user's `eidos/` folder for project-specific ones.
+When creating or editing project files (`eidos/`, `memory/`), always write to the user's repository — never to the plugin directory.
+
 ### Two Workflow Loops
 
 **Formal (inventory-driven):** spec → drift → plan → code (top-down), or code → drift → spec (bottom-up).
