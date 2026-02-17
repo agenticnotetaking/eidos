@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "eidos",
+  "owner": {
+    "name": "lt0gt"
+  },
+  "metadata": {
+    "description": "Spec-driven development \u2014 markdown specs as the source of truth, code downstream"
+  },
+  "plugins": [
+    {
+      "name": "eidos",
+      "description": "Spec-driven development plugin for Claude Code. Markdown specs as the source of truth, code downstream.",
+      "version": "1.0.0",
+      "source": "./"
+    }
+  ],
+  "version": "1.0.0"
+}
