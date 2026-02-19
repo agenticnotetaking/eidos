@@ -19,14 +19,22 @@ fi
 
 input=$(cat)
 
+# Parse JSON with python3 (available everywhere, jq often isn't)
+eval "$(python3 -c "
+import json, sys
+data = json.loads(sys.stdin.read())
+sa = str(data.get('stop_hook_active', False)).lower()
+pct = data.get('context_window', {}).get('used_percentage', '')
+if pct != '':
+    pct = str(int(float(pct)))
+print(f'stop_active={sa}')
+print(f'pct={pct}')
+" <<< "$input" 2>/dev/null)" || exit 0
+
 # Prevent infinite loop: if stop hook already active, allow stop
-stop_active=$(echo "$input" | jq -r '.stop_hook_active // false')
 if [ "$stop_active" = "true" ]; then
     exit 0
 fi
-
-# Extract context window usage percentage
-pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty' 2>/dev/null | cut -d. -f1)
 
 if [ -n "$pct" ]; then
     echo "{\"decision\": \"block\", \"reason\": \"[context used: ${pct}%]\"}"
