@@ -20,12 +20,12 @@
         ]
       }
     ],
-    "Stop": [
+    "UserPromptSubmit": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/stop-context-tracking.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/context-tracking.sh"
           }
         ]
       }

@@ -62,7 +62,7 @@ if [ -d "$PLUGIN_ROOT/inject/feature" ]; then
         basename=$(basename "$snippet" .md)
         config_key=$(echo "$basename" | tr '-' '_')
         enabled=$(bash "$READ_CONFIG" "$config_key" "true")
-        if [ "$enabled" = "true" ]; then
+        if [ -n "$enabled" ] && [ "$enabled" != "false" ] && [ "$enabled" != "null" ]; then
             output+="$(cat "$snippet")\n\n"
         fi
     done

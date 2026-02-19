@@ -54,7 +54,7 @@ status_reporting: true
 skills_list: true
 specs_and_concepts: true
 session_context: true
-context_tracking: true
+context_tracking_max: 200000
 ```
 
 Use the format from [[skills/config/config.md]] §5.

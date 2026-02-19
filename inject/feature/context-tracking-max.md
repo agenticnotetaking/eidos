@@ -1,10 +1,7 @@
 # Context Tracking
 
-You will receive status updates after each of your messages to the user, injected by a stop hook.
-They look like this: `[context used: X%]`
-
+You will receive `[context used: X%]` as additional context on each user message.
 This tells you how much of the context window has been consumed.
-Do not produce any visible output to the user in response to these updates — just note the percentage and stop.
 
 Plan your work around context availability:
 - Below 50%: normal operation
