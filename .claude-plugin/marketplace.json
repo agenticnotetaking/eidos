@@ -11,9 +11,9 @@
     {
       "name": "eidos",
       "description": "Spec-driven development plugin for Claude Code. Markdown specs as the source of truth, code downstream.",
-      "version": "0.10.0",
+      "version": "1.1.0",
       "source": "./"
     }
   ],
-  "version": "0.10.0"
+  "version": "1.1.0"
 }
