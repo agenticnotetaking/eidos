@@ -25,9 +25,15 @@ fi
 # Extract file path from tool input
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // empty')
 
-# Allow writes to gitignored files (they don't affect the repository)
-if [[ -n "$FILE_PATH" ]] && git check-ignore -q "$FILE_PATH" 2>/dev/null; then
-    exit 0
+# Allow writes to files outside the repo or gitignored files
+if [[ -n "$FILE_PATH" ]]; then
+    REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -z "$REPO_ROOT" ]] || [[ "$FILE_PATH" != "$REPO_ROOT"* ]]; then
+        exit 0
+    fi
+    if git check-ignore -q "$FILE_PATH" 2>/dev/null; then
+        exit 0
+    fi
 fi
 
 # Get current branch
