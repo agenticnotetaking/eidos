@@ -40,11 +40,12 @@ Eidos config (.eidos-config.yaml):
 
   git_workflow: true              # branch-per-task, commit-per-action, --no-ff merges
   status_reporting: true          # status report after each action
-  skills_list: true               # skill listing in session start context
+  skills_list: true               # eidos skill listing in session start context
   specs_and_concepts: true        # spec/concept listing, future items at session start
   session_context: true           # session orientation: branches, todos, plans, recent memory
-  context_tracking_max: 200000    # max tokens for context tracking (null to disable)
-  mono_focus: true                # mono focus injection at session start
+  context_tracking_max: 200000    # max tokens for context window tracking (null to disable)
+  mono_focus: true                # mono-repo sub-part focus injection at session start
+  observation_images: true        # persist pasted images as named observation files in memory/
 
 Change which? (e.g., "git_workflow", "context_tracking_max 100000")
 ```
@@ -61,7 +62,8 @@ If a specific key was provided as argument, show only that setting and its descr
 | `specs_and_concepts` | `true` | bool | Spec/concept listing, open comments, future items at session start |
 | `session_context` | `true` | bool | Session orientation: branches, todos, plans, recent memory |
 | `context_tracking_max` | `200000` | int/null | Max tokens for context tracking; `null` to disable |
-| `mono_focus` | `true` | bool | Mono focus injection at session start (reads external mapping) |
+| `mono_focus` | `true` | bool | Mono-repo sub-part focus injection at session start (reads external mapping) |
+| `observation_images` | `true` | bool | Persist pasted images as named observation files in `memory/` |
 | `git_root` | _(omitted)_ | string | Relative path to parent `.git` directory (for nested projects) |
 | `git_prefix` | _(omitted)_ | string | Branch name prefix (for nested projects) |
 
@@ -84,24 +86,33 @@ Steps:
 
 ### 5. Config File Format
 
-When writing `.eidos-config.yaml`:
+When writing `.eidos-config.yaml`, each setting gets a `#` comment on the line above:
 
 ```yaml
+# branch-per-task, commit-per-action, --no-ff merges
 git_workflow: true
+# status report after each action
 status_reporting: true
+# eidos skill listing in session start context
 skills_list: true
+# spec/concept listing, future items at session start
 specs_and_concepts: true
+# session orientation: branches, todos, plans, recent memory
 session_context: true
+# max tokens for context window tracking (null to disable), used to warn about compaction early
 context_tracking_max: 200000
+# mono-repo sub-part focus injection at session start
+mono_focus: true
+# persist pasted images as named observation files in memory/
+observation_images: true
 ```
 
-Comments use `#` and are preserved when changing values.
+Comments are preserved when changing values.
 String keys appear below other keys, separated by a blank line:
 
 ```yaml
-git_workflow: true
-status_reporting: true
-context_tracking_max: 200000
+# persist pasted images as named observation files in memory/
+observation_images: true
 
 # nested project git
 git_root: ../..

@@ -71,6 +71,7 @@ Dynamic context (open comments, future items, branches) stays as hook logic rath
 > [[inject/core.md]]
 > [[inject/feature/git-workflow.md]]
 > [[inject/feature/status-reporting.md]]
+> [[inject/feature/observation-images.md]]
 > [[scripts/read_config.sh]]
 > [[hooks/session-start.sh]]
 > [[hooks/pre-tool-use-branch-check.sh]]

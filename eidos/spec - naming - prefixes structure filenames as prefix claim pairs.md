@@ -18,6 +18,10 @@ All files follow: `<prefix> - <claim>.md`
 - The claim is prose — a readable phrase capturing the main content
 - Claims can be used directly in sentences when wiki-linked: "as stated in [[c - the spec describes the full vision - versioning is for the procedural plan]]"
 
+Non-markdown files (images, diagrams) use the same pattern with their actual extension: `<prefix> - <yymmddhhmm> - <claim>.<ext>`
+Wiki links to non-markdown files must include the extension: `[[observation - 2602242119 - layout bug on mobile.png]]`
+See [[c - observation images persist visual context as named files]].
+
 ### Spec Files (intentional, in `eidos/`)
 
 Spec files use `spec` as prefix, with an optional name segment:

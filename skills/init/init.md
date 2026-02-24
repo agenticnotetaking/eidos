@@ -46,15 +46,25 @@ Check `.eidos-config.yaml`:
 - **Exists but incomplete** (missing boolean keys): append missing keys with their defaults, report "updated (added: key1, key2)"
 - **Complete:** report "already exists"
 
-Default boolean keys and their values:
+Default settings (with `#` comments above each key):
 
 ```yaml
+# branch-per-task, commit-per-action, --no-ff merges
 git_workflow: true
+# status report after each action
 status_reporting: true
+# eidos skill listing in session start context
 skills_list: true
+# spec/concept listing, future items at session start
 specs_and_concepts: true
+# session orientation: branches, todos, plans, recent memory
 session_context: true
+# max tokens for context window tracking (null to disable), used to warn about compaction early
 context_tracking_max: 200000
+# mono-repo sub-part focus injection at session start
+mono_focus: true
+# persist pasted images as named observation files in memory/
+observation_images: true
 ```
 
 Use the format from [[skills/config/config.md]] §5.

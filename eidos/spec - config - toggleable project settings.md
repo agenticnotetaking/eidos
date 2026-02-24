@@ -27,21 +27,32 @@ Config lets a project opt in or out without editing spec files.
 `.eidos-config.yaml` uses YAML key-value pairs:
 
 ```yaml
+# branch-per-task, commit-per-action, --no-ff merges
 git_workflow: true
+# status report after each action
 status_reporting: true
+# eidos skill listing in session start context
 skills_list: true
+# spec/concept listing, future items at session start
 specs_and_concepts: true
+# session orientation: branches, todos, plans, recent memory
 session_context: true
+# max tokens for context window tracking (null to disable), used to warn about compaction early
 context_tracking_max: 200000
+# mono-repo sub-part focus injection at session start
+mono_focus: true
+# persist pasted images as named observation files in memory/
+observation_images: true
 
 # nested project git (only when applicable)
 git_root: ../..
 git_prefix: my-experiment
 ```
 
+- Each setting gets a `#` comment on the line above describing its purpose
 - `true`/`false` for boolean settings
 - Plain values for string settings
-- Comments use `#`
+- Comments are preserved when changing values
 - Missing keys use the default value (true for booleans, omitted for strings)
 - Missing file means all defaults
 
@@ -56,6 +67,7 @@ git_prefix: my-experiment
 | `session_context` | `true` | bool | Session orientation: recent branches, todos, plans, last session, recent memory |
 | `context_tracking_max` | `200000` | int/null | Max token count for context tracking; `null` to disable |
 | `mono_focus` | `true` | bool | Mono focus injection at session start (reads external mapping) |
+| `observation_images` | `true` | bool | Persist pasted images as named observation files in `memory/` |
 | `git_root` | _(omitted)_ | string | Relative path to parent `.git` directory (nested projects only) |
 | `git_prefix` | _(omitted)_ | string | Branch name prefix (nested projects only) |
 

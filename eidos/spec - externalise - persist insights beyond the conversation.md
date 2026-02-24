@@ -28,6 +28,7 @@ Externalising means writing them to files so future sessions can build on past w
 | Learnings during work | Inline in plan/experiment with `=>`, promote to files when significant |
 | Questions to explore | `memory/question - ...` or `{[?]}` in relevant spec |
 | Ideas for later | `{[?]}` in relevant spec or `memory/idea - ...` |
+| Screenshots/images | `memory/observation - {timestamp} - {claim}.{ext}`, linked in active plan/experiment |
 
 ### When to Externalise
 
