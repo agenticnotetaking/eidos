@@ -52,6 +52,7 @@ The right weight depends on how broadly the insight applies.
 
 ## Interactions
 
+- [[c - bias toward artifacts as feedback surfaces over interactive dialogue]] — specific bias: write findings to files with feedback placeholders rather than presenting in chat
 - [[spec - eidos - spec driven development loops]] — externalisation feeds both `eidos/` and `memory/`
 - [[spec - plan skill - structured plan for multi step work]] — `=>` notes are the primary inline externalisation mechanism
 - [[spec - experiment skill - log based iterative exploration with emergent phases]] — experiments also use `=>` for inline externalisation

@@ -31,96 +31,84 @@ For each target file:
 3. Group related comments logically
 4. Note the author of each marker — human `{{...}}` vs AI `{{AI ...}}`
 
-### 3. Structured Dialogue
-
-Present items in a structured format, grouped by topic.
-Handle the two marker types differently:
-
-**Human `{{comments}}`** — the AI asks questions to resolve:
-```
-A. [Topic]
-   {{original comment text}}
-   Context: [the section and nearby claims]
-   Question: [specific question to resolve this]
-```
-
-**AI `{{AI ...}}` annotations** — the AI explains its reasoning, the human decides:
-```
-B. [Topic]
-   {{AI original annotation text}}
-   Reasoning: [why the AI flagged this]
-   Options:
-   1 - Agree (apply suggested change)
-   2 - Disagree (remove annotation)
-   3 - Discuss
-```
-
-Wait for the human's answers.
-Answers can be:
-- A direct response
-- "correct" (confirms the comment's assumption)
-- A redirect to a different approach
-- "skip" or "defer" (leave for later)
-
-### 4. Create Refinement Trace
+### 3. Write Refinement File
 
 Run `date '+%y%m%d%H%M'` to get the current timestamp.
-Create `memory/refinement - <timestamp> - <claim>.md` (per [[spec - naming - prefixes structure filenames as prefix claim pairs]], e.g. `refinement - 2602101418 - refine loop spec comment processing.md`) capturing both sides of the dialogue near-verbatim.
-Don't condense the AI's presentation — the user's answer only makes sense in the context of what was asked and explained.
+Create `memory/refinement - <timestamp> - <claim>.md` (per [[spec - naming - prefixes structure filenames as prefix claim pairs]], e.g. `refinement - 2602101418 - refine loop spec comment processing.md`).
+
+Write findings to the file as a feedback surface — don't present them in chat and wait for answers.
+See [[c - bias toward artifacts as feedback surfaces over interactive dialogue]].
+
+Handle the two marker types differently in the file:
 
 ```markdown
 ---
 tldr: Refinement of [spec name] — [brief topic summary]
-category: core
 ---
 
 # Refinement: [spec name]
 
-## Questions and Answers
+Spec: [[spec name]]
 
-### A. [Topic]
-**Comment:** {{original text}}
-**Presented:**
+# A. [Topic] — status: open
 
-[The AI's full explanation, options, and reasoning as presented in chat — not a summary]
+**Comment:** `{{original comment text}}`
+**Context:** [the section and nearby claims]
+**Question:** [specific question to resolve this]
 
-**Answer:**
+- [ ]
 
-[Verbatim human response]
+# B. [Topic] — status: open
 
-**Resolution:** [what this means for the spec]
+**Comment:** `{{AI original annotation text}}`
+**Reasoning:** [why the AI flagged this]
+**Options:**
+1. Agree (apply suggested change)
+2. Disagree (remove annotation)
+3. [other option if relevant]
 
-### B. [Topic]
-...
+- [ ]
 ```
 
-The trace is the record of how a decision was reached.
-If the AI's explanation is condensed, the answer loses its context and the reasoning becomes opaque.
+Guidelines:
+- Group related comments logically (A, B1, B2, C... format).
+- Human `{{comments}}` get a Question — the AI asks what to do.
+- AI `{{AI ...}}` annotations get Reasoning + Options — the AI explains, the human decides.
+- Each item gets an empty `- [ ]` feedback slot.
+- Sections have status: `open` → `resolved`.
 
-Commit the refinement trace.
+Commit the refinement file.
 
-### 5. Update Spec
+Tell the user:
+```
+Refinement written to [[refinement - <timestamp> - <claim>]]
 
-Apply resolved outcomes to the spec file:
-- Replace resolved `{{comments}}` with the decided content
-- Convert deferred items to `{[?]}` future markers
-- Remove comments that were answered with "not needed" or similar
+Fill in feedback, then I'll update the spec.
+```
 
-Show the diff to the user before writing.
-Commit the spec update.
+### 4. Process Feedback (when re-invoked or feedback provided)
 
-### 6. Summary
+When the user comes back with feedback filled in:
+1. Read the refinement file
+2. For each item with feedback:
+   - Apply to the spec: replace resolved `{{comments}}`, convert deferrals to `{[?]}`, remove "not needed" items
+   - Mark section status: `open` → `resolved`
+3. Items with empty `[ ]` are skipped (no feedback = defer)
+4. Update the refinement file with answers for the record
+5. Commit updated spec and updated refinement file
+
+### 5. Summary
 
 ```
 Refined [spec name]:
 - N comments resolved
 - M deferred as {[?]}
-- K removed
+- K skipped (no feedback)
 
-Refinement trace: [[refinement - <timestamp> - <claim>]]
+Refinement: [[refinement - <timestamp> - <claim>]]
 ```
 
 ## Output
 
 - Creates: `memory/refinement - <timestamp> - <claim>.md`
-- Modifies: target spec file(s) in `eidos/`
+- Modifies: target spec file(s) in `eidos/` (after feedback)
