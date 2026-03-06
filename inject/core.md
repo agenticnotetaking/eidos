@@ -61,6 +61,10 @@ If the bug persists after trying the obvious things, ask the user whether to:
 If the problem is obviously hard or opaque from the start, skip the speculative attempts — ask for logging or debug UI right away.
 When isolation is possible, suggest creating a small script or test that reproduces the issue outside the full system — faster feedback loops catch bugs faster.
 
+When anything fails repeatedly — terminal commands, code fixes, debugging attempts — stop and hand off to the user rather than spiraling.
+Options: give them a command to paste and run, write a small diagnostic script with debugging output, suggest targeted logging, or present the options you see and ask which to try.
+The user can also trigger this manually with `/eidos:spiral`.
+
 These are defaults, not the only options — suggest whatever approach makes sense in context (bisecting, reverting, reading docs, etc.).
 Don't spiral into increasingly speculative attempts — escalate to the user with what you know and what you'd need to learn.
 
@@ -157,6 +161,9 @@ Common triggers:
 - "Let me try some things" / "Let's experiment with…" / "I want to iterate on…" → `/eidos:experiment`
 - [image dropped] / "Describe this image" / "Save this image" → `/eidos:image`
 - "Review this plan" / "Check the plan before we start" → `/eidos:plan-review`
+- "Make that a claim" → `/eidos:claim`
+- "You're spiraling" → `/eidos:spiral`
+- "Copy that" / "Clip that" / "Put that on the clipboard" → `/eidos:clip`
 
 ## Plans
 
