@@ -96,6 +96,7 @@ Together they create a history that's reviewable, rollbackable, and meaningful.
 - [[spec - nested projects - sub-project isolation with shared git]] — `git_prefix` for branch naming in sub-projects
 - [[spec - eidos - spec driven development loops]] — commits happen as part of the action loop
 - [[spec - plan skill - structured plan for multi step work]] — plan updates are committed as part of each action
+- [[spec - worktree - parallel task work via linked worktrees]] — worktrees extend branch-per-task with physical directory separation
 
 ## Mapping
 

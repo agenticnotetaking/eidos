@@ -153,6 +153,7 @@ Common triggers:
 - "We need to decide between…" → `/eidos:decision`
 - "I found issues while testing" → `/eidos:observe`
 - "Add a todo" → `/eidos:todo`
+- "I wish it could…" / "Feature idea:" / "Wouldn't it be nice if…" → `/eidos:wish`
 - "Let's brainstorm" → `/eidos:brainstorm`
 - "Challenge this" / "Is this a good idea?" → `/eidos:challenge`
 - "Is it safe to start a new session?" / "Anything left to do?" → `/eidos:compact`
@@ -164,6 +165,8 @@ Common triggers:
 - "Make that a claim" → `/eidos:claim`
 - "You're spiraling" → `/eidos:spiral`
 - "Copy that" / "Clip that" / "Put that on the clipboard" → `/eidos:clip`
+- "New worktree" / "Work on X in parallel" / "Create a worktree" → `/eidos:worktree`
+- "Enable fail detection" / "Safe mode for commands" / "Verify before running" → `/eidos:faildetect`
 
 ## Plans
 

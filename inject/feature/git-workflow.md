@@ -18,3 +18,4 @@ Your help is much appreciated, and you are an amazing enabler, but the git histo
 - **Never delete branches** after merging — branch references are history
 - **New work in existing branch:** if work diverges from the branch purpose, ask whether to merge first and create a new branch — don't silently continue
 - **Uncommitted changes:** before switching branches, check `git status` — if changes exist, ask whether to stash or commit. Don't silently stash or discard.
+- **Worktrees:** for parallel task work, use `/eidos:worktree` to create sibling-directory worktrees — each gets its own `task/` branch and working directory. See [[spec - worktree - parallel task work via linked worktrees]].

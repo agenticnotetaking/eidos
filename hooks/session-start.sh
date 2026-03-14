@@ -68,6 +68,47 @@ if [ "$(bash "$READ_CONFIG" "mono_focus" "true")" = "true" ]; then
     fi
 fi
 
+# --- Worktree awareness (config-gated) ---
+if [ "$(bash "$READ_CONFIG" "worktrees" "true")" = "true" ]; then
+    worktree_count=$(git worktree list 2>/dev/null | wc -l | tr -d ' ')
+    if [ "$worktree_count" -gt 1 ]; then
+        main_worktree=$(git worktree list --porcelain 2>/dev/null | head -1 | sed 's/^worktree //')
+        current_dir=$(pwd)
+        repo_name=$(basename "$main_worktree")
+
+        # Detect if we're in a linked worktree
+        if [ "$current_dir" != "$main_worktree" ]; then
+            current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+            output+="## Worktree\n\n"
+            output+="**Say this at the very start of your first response (before anything else):**\n\n"
+            output+="> Worktree: **$current_branch** (\`$current_dir\`)\n\n"
+        fi
+
+        # List other worktrees
+        other_worktrees=""
+        while IFS= read -r line; do
+            wt_path=$(echo "$line" | awk '{print $1}')
+            wt_branch=$(echo "$line" | awk '{print $3}' | sed 's/\[//;s/\]//')
+            if [ "$wt_path" != "$current_dir" ]; then
+                if [ "$wt_path" = "$main_worktree" ]; then
+                    other_worktrees+="  $wt_path    $wt_branch    (main worktree)\n"
+                else
+                    ahead=$(git rev-list --count main.."$wt_branch" 2>/dev/null || echo "?")
+                    other_worktrees+="  $wt_path    $wt_branch    ($ahead commits ahead)\n"
+                fi
+            fi
+        done < <(git worktree list 2>/dev/null)
+
+        if [ -n "$other_worktrees" ]; then
+            if [ "$current_dir" != "$main_worktree" ]; then
+                output+="Other worktrees:\n$other_worktrees\n"
+            else
+                output+="**[session] Active worktrees:**\n$other_worktrees\n"
+            fi
+        fi
+    fi
+fi
+
 # --- Feature snippets (config-gated) ---
 if [ -d "$PLUGIN_ROOT/inject/feature" ]; then
     for snippet in "$PLUGIN_ROOT/inject/feature/"*.md; do
@@ -146,6 +187,16 @@ if [ -n "$todos" ]; then
     done <<< "$todos"
 fi
 
+# Open wishes
+wishes=$(find memory/ -maxdepth 1 -name 'wish - *.md' 2>/dev/null | sort -r)
+if [ -n "$wishes" ]; then
+    output+="\n**[session] Open wishes:**\n"
+    while IFS= read -r wish; do
+        name=$(basename "$wish" .md)
+        output+="- [[$name]]\n"
+    done <<< "$wishes"
+fi
+
 # Open plans (with unchecked items)
 plans=$(find memory/ -maxdepth 1 -name 'plan - *.md' 2>/dev/null | sort -r)
 if [ -n "$plans" ]; then
@@ -183,7 +234,7 @@ fi
 
 # Recent memory files (last 7 days, excluding session/todo/plan already shown)
 recent_memory=$(find memory/ -maxdepth 1 -name '*.md' \
-    ! -name 'session - *' ! -name 'todo - *' ! -name 'plan - *' ! -name 'human.md' \
+    ! -name 'session - *' ! -name 'todo - *' ! -name 'wish - *' ! -name 'plan - *' ! -name 'human.md' \
     -mtime -7 2>/dev/null | sort -r | head -10)
 if [ -n "$recent_memory" ]; then
     output+="\n**[session] Recent memory (7d):**\n"

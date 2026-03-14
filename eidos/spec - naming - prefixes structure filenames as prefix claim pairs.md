@@ -136,14 +136,17 @@ Procedural prefixes (timestamped):
 - `review` — manual — `review - 2602101500 - sprint retrospective findings.md`
 - `session` — `/eidos:tomd` — `session - 2602141030 - auth implementation session.md`
 - `solved` — renamed `todo` — `solved - 2602122314 - document gid notation system.md`
+- `specced` — renamed `wish` — `specced - 2602101400 - inline search in sidebar.md`
 - `summary` — `/eidos:summary` — `summary - 2602141030 - auth module overview.md`
 - `sync` — `/eidos:sync` — `sync - 2602141030 - reconciled auth specs and code.md`
 - `todo` — `/eidos:todo` — `todo - 2602101400 - audit error handling consistency.md`
 - `weave` — `/eidos:weave` — `weave - 2602141030 - suggested links.md`
+- `wish` — `/eidos:wish` — `wish - 2602101400 - inline search in sidebar.md`
 
 Non-timestamped prefixes (in `memory/`): idea, problem, question
 
 `solved` is a renamed `todo` — when a todo is complete, rename from `todo -` to `solved -` (preserving timestamp and claim).
+`specced` is a renamed `wish` — when a wish gets a proper spec, rename from `wish -` to `specced -` (preserving timestamp and claim).
 
 ### Nesting
 

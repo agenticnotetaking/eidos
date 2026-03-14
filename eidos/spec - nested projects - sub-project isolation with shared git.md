@@ -79,11 +79,14 @@ git_prefix: my-experiment
 
 Config spec, config skill, `read_config.sh`, and session-start hook all migrated to YAML format.
 
-### Why Not Submodules or Worktrees
+### Why Not Submodules
 
-Git submodules and worktrees solve similar problems but add complexity.
+Git submodules solve a similar problem but add complexity.
 This spec targets the simpler case: directories inside a repo that want their own eidos context.
 Nothing prevents a sub-project from being a submodule — the git detection flow would just find `.git` locally and skip the parent walk.
+
+Git worktrees are a separate concern — they solve parallel task work (multiple branches checked out simultaneously), not sub-project isolation.
+See [[spec - worktree - parallel task work via linked worktrees]].
 
 ## Verification
 
