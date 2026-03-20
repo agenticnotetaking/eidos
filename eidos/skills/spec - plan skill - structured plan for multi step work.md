@@ -58,7 +58,10 @@ implement → commit code → update plan (mark task, add Progress Log entry) �
 ## Interactions
 
 - [[spec - template - basis for output files]] — plan template lives here
-- [[spec - push skill - implements code to match spec]] — push can create plans for larger changes
+- [[spec - push skill - implements code to match spec]] — push can create plans for larger changes; plan actions can invoke push for spec-to-code work
+- [[spec - spec skill - think through and create specs via structured dialogue]] — suggest spec creation when planning work that lacks a spec
+- [[spec - research skill - investigate and document findings with sources]] — plan actions should explicitly invoke research when knowledge gaps exist
+- [[spec - decision skill - record significant choices with options and rationale]] — plan actions should invoke decision when alternatives need evaluation
 - [[spec - eidos - spec driven development loops]] — plans are procedural artifacts in `memory/`
 
 ## Mapping

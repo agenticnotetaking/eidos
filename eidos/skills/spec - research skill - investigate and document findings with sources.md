@@ -49,6 +49,9 @@ Distillation without source notes loses provenance — you can't verify or revis
 
 - [[spec - template - basis for output files]] — research template
 - [[spec - plan skill - structured plan for multi step work]] — research often precedes or is embedded in plan actions
+- [[spec - spec skill - think through and create specs via structured dialogue]] — when findings define something new, follow up with spec creation
+- [[spec - decision skill - record significant choices with options and rationale]] — when findings present alternatives, follow up with a decision
+- [[spec - deepresearch skill - recursive area exploration with progressive synthesis]] — when the topic needs more depth than a single research pass
 - [[spec - externalise - persist insights beyond the conversation]] — research is a primary externalisation mechanism
 
 ## Mapping

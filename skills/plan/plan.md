@@ -22,7 +22,11 @@ Search for related artifacts:
 - Goals (`memory/goal - *.md`) or proposals (`memory/proposal - *.md`)
 
 If found, link to them in the plan's Context section.
-If not, gather context from the user.
+
+**If a spec doesn't exist yet** for what's being planned, suggest creating one first with `/eidos:spec` — plans implement specs, so the spec should exist before the plan.
+Skip this if the work is purely procedural (migration, cleanup, infra) with no spec-worthy design.
+
+If not found, gather context from the user.
 
 ### 2. Clarify the Plan
 
@@ -43,6 +47,15 @@ Follow up as needed on:
 ### 3. Draft Actions
 
 Structure work into phases with ordered actions.
+
+**Explicitly include skill invocations as actions** when an action needs one:
+- Research needed before implementation? → action: `/eidos:research [topic]` or `/eidos:deepresearch`
+- Spec needs creating or updating? → action: `/eidos:spec [topic]`
+- Code needs to match a spec? → action: `/eidos:push [spec]`
+- Decision between alternatives? → action: `/eidos:decision [topic]`
+
+Don't leave these implicit — name the skill in the action so it routes correctly during plan-continue.
+
 Each action should be:
 - **Atomic** — one logical unit of work, one commit
 - **Verifiable** — clear completion criteria

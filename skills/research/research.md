@@ -73,15 +73,19 @@ Commit.
 
 ### 7. Present and Offer Next Steps
 
-Show the distilled findings (not the full file) and offer:
+Show the distilled findings (not the full file) and offer specific next skills based on what the research revealed:
+
 ```
 Research complete: [[research - <timestamp> - <claim>]]
 
 Options:
-1 - Act on implications (update specs, create decision, etc.)
-2 - Investigate further on [specific angle]
-3 - Done for now
+1 - Create a spec with /eidos:spec [if findings define something new]
+2 - Record a decision with /eidos:decision [if findings present alternatives]
+3 - Go deeper with /eidos:deepresearch [if the topic needs more depth]
+4 - Done for now
 ```
+
+Tailor the options to what actually emerged — don't offer all of these every time.
 
 ## Output
 

@@ -45,17 +45,22 @@ Plans create their own structure; process works with whatever structure the docu
 
 ### Resolution Format
 
-Items are updated in-place with a **Resolved:** note:
+Resolution is always additive — original content is never deleted or rewritten.
+
+**General documents** get a `**Resolved:**` note appended below the original finding:
 
 ```markdown
 ### 1 - Config file path contradiction
 
-...original finding...
+...original finding preserved...
 
 **Resolved:** Updated references in main spec. `abc1234`
 ```
 
-The original finding is preserved — the resolution is additive.
+**Refinement files** (from `/eidos:refine`) have their own structure — process works within it:
+- Fill in the `- [ ]` feedback slot with the resolution
+- Change `status: open` → `status: resolved` in the section header
+- Preserve all original fields (Comment, Context, Question, Reasoning, Options) untouched
 
 ## Verification
 

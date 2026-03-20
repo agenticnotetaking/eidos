@@ -148,6 +148,8 @@ The invocation IS the routing — don't match keywords on top of it.
 Common triggers:
 - "Plan this" → `/eidos:plan`
 - "Research this" → `/eidos:research`
+- "Deep dive on…" / "Go deep on…" / "Explore the landscape of…" → `/eidos:deepresearch`
+- "Continue deep research" / "Resume deep research" → `/eidos:deepresearch continue`
 - "Document this external knowledge" → `/eidos:reference`
 - "Spec this out" → `/eidos:spec`
 - "We need to decide between…" → `/eidos:decision`

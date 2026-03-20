@@ -34,7 +34,8 @@ Unlike `/eidos:pull` (which extracts specs from code) or `/eidos:refine` (which 
 ## Interactions
 
 - [[template - spec - sections and conventions for spec files]] — output structure
-- [[spec - push skill - implements code to match spec]] — natural follow-up
+- [[spec - push skill - implements code to match spec]] — natural follow-up for small/focused specs
+- [[spec - plan skill - structured plan for multi step work]] — natural follow-up for large/multi-concern specs that need a plan before implementation
 - [[spec - refine skill - processes inline comments via structured dialogue]] — for post-creation refinement
 - [[spec - pull skill - reverse engineers spec from existing code]] — alternative when code exists first
 

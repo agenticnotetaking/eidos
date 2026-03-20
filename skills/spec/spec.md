@@ -67,13 +67,20 @@ Commit immediately.
 
 ### 4. Offer Next Steps
 
+Choose which options to present based on the spec's scope:
+
+- **Small/focused spec** (single concern, clear implementation) → offer `/eidos:push`
+- **Large/multi-concern spec** (new feature, multiple files, architectural) → offer `/eidos:plan` — implementation at this scale needs a plan, not a direct push
+- Always offer `/eidos:refine` if there are open questions or `{{comments}}`
+
 ```
 Spec created: [[spec - <name> - <claim>]]
 
 Options:
-1 - Implement with /eidos:push
-2 - Refine further with /eidos:refine
-3 - Done for now
+1 - Plan implementation with /eidos:plan
+2 - Implement directly with /eidos:push
+3 - Refine further with /eidos:refine
+4 - Done for now
 ```
 
 ## Output

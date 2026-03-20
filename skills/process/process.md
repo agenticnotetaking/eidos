@@ -55,15 +55,40 @@ For each item:
 
 ### 4. Update the Source Document
 
-After resolving an item, update it in the source file.
-Add resolution notes inline — don't delete the original finding:
+After resolving an item, update it **in place** in the source file.
+Never delete or rewrite original content — resolution is always additive.
+
+#### General documents (coherence, drift, review, etc.)
+
+Append a `**Resolved:**` note below the original finding:
 
 ```markdown
 ### 1 - Config file path: `eidos/.config` vs `.eidos-config`
 
-...original finding...
+...original finding preserved as-is...
 
 **Resolved:** Updated two references in main spec. `abc1234`
+```
+
+#### Refinement files (from `/eidos:refine`)
+
+Refinement files have a specific structure: lettered sections with `status: open`, feedback slots (`- [ ]`), and structured fields (Comment, Context, Question, Reasoning, Options).
+Work within this structure:
+
+1. Fill in the `- [ ]` slot with the resolution (e.g. `- [x] Applied option 1 — updated spec accordingly`)
+2. Change `status: open` → `status: resolved` in the section header
+3. Preserve all original fields (Comment, Context, Question, Reasoning, Options) untouched
+
+```markdown
+# B. [Topic] — status: resolved
+
+**Comment:** `{{original comment text}}`
+**Reasoning:** [original reasoning preserved]
+**Options:**
+1. Agree (apply suggested change)
+2. Disagree (remove annotation)
+
+- [x] Applied option 1 — removed annotation and updated claim. `def5678`
 ```
 
 Commit the source document update.
