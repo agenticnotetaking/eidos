@@ -17,6 +17,9 @@ Research a topic and produce a structured findings file.
 
 ### 1. Clarify the Question
 
+If the target file already exists with `status: seed`, read it — its content is raw context that seeds the research.
+Use the seed's notes and links as starting sources, skip clarification the seed already covers.
+
 If the topic is broad, use AskUserQuestion to narrow scope:
 - What specifically do we need to know?
 - Any preferred sources or angles?
@@ -81,7 +84,7 @@ Research complete: [[research - <timestamp> - <claim>]]
 Options:
 1 - Create a spec with /eidos:spec [if findings define something new]
 2 - Record a decision with /eidos:decision [if findings present alternatives]
-3 - Go deeper with /eidos:deepresearch [if the topic needs more depth]
+3 - Go deeper with /eidos:research-deep [if the topic needs more depth]
 4 - Done for now
 ```
 

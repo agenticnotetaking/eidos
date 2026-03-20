@@ -3,23 +3,23 @@ tldr: Recursive deep research — outline areas, explore each progressively, syn
 category: observation
 ---
 
-# /eidos:deepresearch
+# /eidos:research-deep
 
 Deep research on a broad topic via recursive area exploration and progressive externalisation.
 
 ## Usage
 
 ```
-/eidos:deepresearch [topic or domain]                  # start — will ask for budget
-/eidos:deepresearch [topic] budget 10                  # start with soft budget of 10
-/eidos:deepresearch [topic] budget 10 hard             # start with hard budget of 10
-/eidos:deepresearch [topic] budget none                # start with no budget constraint
-/eidos:deepresearch continue                           # resume existing deep research
+/eidos:research-deep [topic or domain]                  # start — will ask for budget
+/eidos:research-deep [topic] budget 10                  # start with soft budget of 10
+/eidos:research-deep [topic] budget 10 hard             # start with hard budget of 10
+/eidos:research-deep [topic] budget none                # start with no budget constraint
+/eidos:research-deep continue                           # resume existing deep research
 ```
 
 ## When to Use
 
-Use deepresearch (not regular research) when:
+Use research-deep (not regular research) when:
 - The topic is broad enough to have multiple distinct sub-domains
 - You need a landscape view, not a single answer
 - The user says "go deep", "step by step", "explore different approaches"
@@ -60,10 +60,10 @@ If the user already provided a clear scope (like a detailed prompt), confirm and
 Think about the topic and identify 4-8 areas that together cover the landscape.
 This is the research plan — it will evolve as you learn more.
 
-Read the template: [[template - deepresearch - recursive area exploration with progressive synthesis]]
+Read the template: [[template - research-deep - recursive area exploration with progressive synthesis]]
 
 Run `date '+%y%m%d%H%M'` to get the current timestamp.
-Create `memory/deepresearch - <timestamp> - <claim>.md` with:
+Create `memory/research-deep - <timestamp> - <claim>.md` with:
 - Frontmatter including budget fields (`budget`, `budget_type`, `budget_spent`)
 - Meta section (standard — explains the living document concept)
 - Seed section (verbatim user intent in a blockquote)
@@ -153,7 +153,7 @@ After all areas are explored:
 
 Show the synthesis (not the full file) and offer:
 ```
-Deep research complete: [[deepresearch - <timestamp> - <claim>]]
+Deep research complete: [[research-deep - <timestamp> - <claim>]]
 
 [Key synthesis points]
 
@@ -169,15 +169,15 @@ Options:
 
 #### 1. Find Deep Research
 
-Search `memory/` for `deepresearch - *.md` files with status not `complete` or `superseded`.
+Search `memory/` for `research-deep - *.md` files with status not `complete` or `superseded`.
 
-**Single active deepresearch:** load it directly.
+**Single active research-deep:** load it directly.
 **Multiple active:** present a selection list.
 **None active:** offer to start a new one.
 
 #### 2. Read and Assess State
 
-Read the deepresearch file thoroughly.
+Read the research-deep file thoroughly.
 Determine:
 - Which areas are done, which are open
 - Whether the current area has open research plan items
@@ -188,7 +188,7 @@ Determine:
 
 **If an area is in progress (status: active):**
 ```
-Resuming: [[deepresearch - <timestamp> - <claim>]]
+Resuming: [[research-deep - <timestamp> - <claim>]]
 
 **Area N: [name]** — [M/T research plan items done]
 Last finding: [brief summary]
@@ -199,7 +199,7 @@ Proceed?
 
 **If current area is done, next area is open:**
 ```
-Resuming: [[deepresearch - <timestamp> - <claim>]]
+Resuming: [[research-deep - <timestamp> - <claim>]]
 
 Progress: X/Y areas complete.
 Last area: [name] — [key finding]
@@ -211,7 +211,7 @@ Proceed, or adjust trajectory?
 
 **If all areas are done:**
 ```
-Resuming: [[deepresearch - <timestamp> - <claim>]]
+Resuming: [[research-deep - <timestamp> - <claim>]]
 
 All Y areas complete.
 [Brief overview of what emerged]
@@ -250,6 +250,6 @@ If the synthesis is just "Area 1 found X, Area 2 found Y" — it's not synthesis
 
 ## Output
 
-- Creates: `memory/deepresearch - <timestamp> - <claim>.md`
+- Creates: `memory/research-deep - <timestamp> - <claim>.md`
 - Status field starts as `active`, set to `complete` when done
 - Intermediate commits after each area

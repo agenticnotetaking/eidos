@@ -17,6 +17,7 @@ Without templates, each invocation reinvents the format.
 - Skills reference their template and fill in context-specific content
 - The template is a blueprint, not a rigid contract — sections can be omitted or extended as needed
 - Template filenames follow `template - <name> - <claim>.md`
+- Any templated file can have `status: seed` — see [[c - seed status marks files with unstructured context awaiting template compliance]]
 
 ## Templates
 

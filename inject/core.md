@@ -126,6 +126,13 @@ When only one option exists, auto-select it — unless the action is destructive
 Acted-upon items get `=>` wiki links to resulting files.
 See [[spec - numbered lists - structured selectable output]].
 
+## Seed Files
+
+Any templated file (spec, plan, research, decision, etc.) can have `status: seed` in frontmatter.
+A seed contains raw context — notes, links, brain dumps — that doesn't follow the template yet.
+Seeds are valid input to skills: the skill uses the seed content as pre-answered context and structures it into template-compliant form.
+See [[c - seed status marks files with unstructured context awaiting template compliance]].
+
 ## Naming
 
 Files follow `prefix - claim.md` with prose claims.
@@ -148,8 +155,10 @@ The invocation IS the routing — don't match keywords on top of it.
 Common triggers:
 - "Plan this" → `/eidos:plan`
 - "Research this" → `/eidos:research`
-- "Deep dive on…" / "Go deep on…" / "Explore the landscape of…" → `/eidos:deepresearch`
-- "Continue deep research" / "Resume deep research" → `/eidos:deepresearch continue`
+- "Deep dive on…" / "Go deep on…" / "Explore the landscape of…" → `/eidos:research-deep`
+- "Continue deep research" / "Resume deep research" → `/eidos:research-deep continue`
+- "Research this recursively" / "Branch out on…" / "Research tree for…" → `/eidos:research-recursive`
+- "Continue recursive research" → `/eidos:research-recursive continue`
 - "Document this external knowledge" → `/eidos:reference`
 - "Spec this out" → `/eidos:spec`
 - "We need to decide between…" → `/eidos:decision`

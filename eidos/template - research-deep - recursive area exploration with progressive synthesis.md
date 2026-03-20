@@ -4,7 +4,7 @@ tldr: Template for deep research files — hierarchical areas explored recursive
 
 # Deep Research Template
 
-Output path: `memory/deepresearch - <timestamp> - <claim>.md`
+Output path: `memory/research-deep - <timestamp> - <claim>.md`
 
 ```markdown
 ---

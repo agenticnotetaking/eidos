@@ -10,11 +10,20 @@ Process `{{comments}}` and `{{AI ...}}` annotations in eidos spec files through 
 ## Usage
 
 ```
-/eidos:refine [file ...]         # refine specific file(s)
+/eidos:refine [file ...]         # refine specific file(s) — creates refinement file
 /eidos:refine                    # find files with open comments automatically
+/eidos:refine inline [file ...]  # resolve comments directly in the spec, no extra file
 ```
 
-## Instructions
+## Mode Detection
+
+Check ARGUMENTS for `inline`:
+- If `inline` → go to **Inline Mode**
+- Otherwise → go to **Standard Mode** (steps 1-5 below)
+
+---
+
+## Standard Mode
 
 ### 1. Find Comments
 
@@ -108,7 +117,69 @@ Refined [spec name]:
 Refinement: [[refinement - <timestamp> - <claim>]]
 ```
 
+---
+
+## Inline Mode
+
+Resolve comments directly in the spec — no refinement file, no async feedback loop.
+Good for small batches where the human is present and can answer questions live.
+
+### 1. Find and Extract Comments
+
+Same as Standard Mode steps 1-2 — find files, extract comments.
+
+### 2. Warn If Inline Seems Like a Bad Idea
+
+Before proceeding, check whether inline mode is appropriate.
+**Warn and suggest standard mode** if:
+- More than ~6 comments across files — too many for interactive resolution
+- Multiple comments require deep thought or cross-referencing other specs
+- Comments span many unrelated topics — async feedback is better
+
+```
+This file has 12 comments across 4 topics — inline might be tedious.
+Switch to standard mode (creates a refinement file for async feedback)?
+```
+
+If the user insists on inline, proceed.
+
+### 3. Resolve Comments
+
+Process each comment one at a time:
+
+**Trivial comments** (obvious fix, clear intent, no ambiguity):
+- Resolve automatically — apply the change, remove the `{{comment}}`
+- Show what was done: `Resolved: {{fix typo in claim}} — fixed spelling`
+
+**AI annotations** (`{{AI ...}}`):
+- Present the reasoning and options via AskUserQuestion
+- Apply the chosen option, remove the annotation
+
+**Ambiguous or substantive human comments** (`{{...}}`):
+- Ask the user via AskUserQuestion — present the comment, its context, and a specific question
+- The agent can also suggest a resolution as one of the options
+- Apply the answer, remove the `{{comment}}`
+
+**Comments the agent isn't sure about:**
+- Present reasoning and ask — don't guess silently
+- If the user defers, leave the `{{comment}}` in place
+
+After each resolution (or small batch of related ones), commit.
+
+### 4. Summary
+
+```
+Refined [spec name] inline:
+- N comments resolved
+- M left in place (deferred)
+```
+
 ## Output
 
+**Standard mode:**
 - Creates: `memory/refinement - <timestamp> - <claim>.md`
 - Modifies: target spec file(s) in `eidos/` (after feedback)
+
+**Inline mode:**
+- Modifies: target spec file(s) in `eidos/` directly
+- No refinement file created

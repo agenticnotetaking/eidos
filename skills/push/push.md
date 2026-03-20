@@ -25,6 +25,8 @@ Implement or update code to match what the spec describes (Platonic direction: s
 
 ### 2. Read the Spec(s)
 
+If a spec has `status: seed`, stop and suggest structuring it first with `/eidos:spec` — seed specs contain raw context, not implementable claims.
+
 For each target spec, read thoroughly:
 - **Target** — what it's trying to achieve
 - **Behaviour** — the claims that must be upheld in code

@@ -52,7 +52,8 @@ status: active
 ## Field Reference
 
 **Frontmatter:**
-- `status` — `open`, `active`, `paused`, `completed`, `abandoned`
+- `status` — `seed`, `open`, `active`, `paused`, `completed`, `abandoned`
+- `seed` means the file contains raw context that doesn't follow the template yet — see [[c - seed status marks files with unstructured context awaiting template compliance]]
 
 **Phases:**
 - Split work into logical groups

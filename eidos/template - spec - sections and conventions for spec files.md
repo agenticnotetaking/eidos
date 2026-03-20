@@ -80,6 +80,9 @@ Anything else — context, gotchas, open questions.
 **Required:** `tldr` frontmatter, `# Title`, `## Target`, `## Behaviour`.
 Everything else is included when relevant and omitted when not.
 
+**Exception:** `status: seed` specs are exempt from required sections — they contain raw context awaiting structuring.
+See [[c - seed status marks files with unstructured context awaiting template compliance]].
+
 **Section order** follows the template above.
 Sections appear in this order when present, but gaps are fine — don't add empty sections.
 

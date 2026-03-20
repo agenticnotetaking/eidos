@@ -17,6 +17,10 @@ Create a persistent plan file for multi-step work.
 
 ### 1. Gather Context
 
+If the target file already exists with `status: seed`, read it — its content is raw context that seeds the plan.
+Use the seed's notes, links, and brain dumps to draft phases and actions.
+Skip clarification questions the seed already covers.
+
 Search for related artifacts:
 - Specs in `eidos/` that relate to the work
 - Goals (`memory/goal - *.md`) or proposals (`memory/proposal - *.md`)
@@ -49,7 +53,7 @@ Follow up as needed on:
 Structure work into phases with ordered actions.
 
 **Explicitly include skill invocations as actions** when an action needs one:
-- Research needed before implementation? → action: `/eidos:research [topic]` or `/eidos:deepresearch`
+- Research needed before implementation? → action: `/eidos:research [topic]` or `/eidos:research-deep`
 - Spec needs creating or updating? → action: `/eidos:spec [topic]`
 - Code needs to match a spec? → action: `/eidos:push [spec]`
 - Decision between alternatives? → action: `/eidos:decision [topic]`

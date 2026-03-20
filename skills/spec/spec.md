@@ -18,6 +18,10 @@ Asks questions to clarify target, behaviour, and design, then produces the spec 
 
 ### 1. Gather Context
 
+If the target file already exists with `status: seed`, read it — its content is raw context that seeds the Q&A.
+Use the seed's notes, links, and brain dumps as pre-answered context.
+Skip questions the seed already covers.
+
 Search for related artifacts:
 - Existing specs in `eidos/` that touch the same domain
 - Claims or concepts that relate

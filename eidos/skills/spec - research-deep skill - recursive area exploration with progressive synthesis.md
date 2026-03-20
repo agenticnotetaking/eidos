@@ -2,7 +2,7 @@
 tldr: Deep research explores broad topics via hierarchical areas — each area is a mini research cycle, cross-area synthesis produces the real insight
 ---
 
-# /eidos:deepresearch
+# /eidos:research-deep
 
 ## Target
 
@@ -23,7 +23,7 @@ Deep research builds understanding.
 - Trajectory adjustments documented when earlier areas change the research direction
 - Progressive externalisation — file updated and committed after each area
 - Cross-area synthesis after all areas are explored
-- Creates `memory/deepresearch - <timestamp> - <claim>.md` using [[template - deepresearch - recursive area exploration with progressive synthesis]]
+- Creates `memory/research-deep - <timestamp> - <claim>.md` using [[template - research-deep - recursive area exploration with progressive synthesis]]
 - Seed section preserves verbatim user intent; Meta section explains the living document concept
 - Budget system: each area (any level) costs 1 unit. Can be soft (exceed with justification), hard (strict cap), or none (unconstrained). Tracked in frontmatter as `budget`, `budget_type`, `budget_spent`
 
@@ -65,7 +65,7 @@ The budget makes the breadth-vs-depth trade-off explicit and negotiable rather t
 ### Continue Mode
 
 Deep research often spans multiple sessions.
-`continue` mode finds the active deepresearch file, reads its state, and proposes the next area to explore.
+`continue` mode finds the active research-deep file, reads its state, and proposes the next area to explore.
 Same pattern as `/eidos:experiment continue` — find, assess, resume.
 
 ### Progressive Externalisation
@@ -83,7 +83,7 @@ This means:
 Deep research contains regular research — each area is effectively a focused research cycle.
 The added value is the outline (what to explore) and the synthesis (what it means together).
 
-If a deepresearch starts and turns out to be narrow enough for regular research, just collapse it — no ceremony needed.
+If a research-deep starts and turns out to be narrow enough for regular research, just collapse it — no ceremony needed.
 
 ## Verification
 
@@ -97,11 +97,12 @@ If a deepresearch starts and turns out to be narrow enough for regular research,
 
 ## Interactions
 
+- [[spec - research-recursive skill - file per area research with nested wiki-linked branching]] — same concept distributed across files instead of one document
 - [[spec - research skill - investigate and document findings with sources]] — deep research contains regular research at the area level
-- [[spec - template - basis for output files]] — deepresearch template
+- [[spec - template - basis for output files]] — research-deep template
 - [[spec - planning - structured intent between spec and code]] — outline of areas is structurally similar to plan phases
 - [[spec - externalise - persist insights beyond the conversation]] — progressive externalisation is core to the approach
 
 ## Mapping
 
-> [[skills/deepresearch/deepresearch.md]]
+> [[skills/research-deep/research-deep.md]]

@@ -10,6 +10,9 @@ Spec files accumulate `{{comments}}` as the author reads and thinks. These need 
 
 ## Behaviour
 
+Two modes:
+
+**Standard mode** (default):
 - Args: one or more file paths
 - Extracts all `{{comments}}` from the target file(s) with surrounding context
 - Groups related comments logically
@@ -17,8 +20,15 @@ Spec files accumulate `{{comments}}` as the author reads and thinks. These need 
 - Human fills in feedback at their own pace (in-editor, across sessions if needed)
 - When re-invoked: processes feedback, updates spec, marks sections resolved
 - Unresolved items remain as `{{comments}}` or become `{?}` future items
+- Follows [[c - bias toward artifacts as feedback surfaces over interactive dialogue]] — the refinement file is the review surface, not the chat
 
-Follows [[c - bias toward artifacts as feedback surfaces over interactive dialogue]] — the refinement file is the review surface, not the chat.
+**Inline mode** (`/eidos:refine inline [file ...]`):
+- Resolves comments directly in the spec — no refinement file
+- Trivial comments resolved automatically (obvious fixes, clear intent)
+- Ambiguous or substantive comments resolved via AskUserQuestion
+- AI annotations presented with reasoning and options
+- Warns if inline seems like a bad idea (many comments, complex topics) and suggests standard mode
+- Deferred comments left as `{{comments}}` in place
 
 ## Design
 
