@@ -91,6 +91,30 @@ Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
 Then restart Claude and run `/eidos:init` inside any project to bootstrap the folder structure.
 
+### Alternative: clone and alias
+
+If you'd rather run from a local checkout (easier to adjust eidos to your needs), clone the repo and add shell aliases:
+
+```bash
+git clone https://github.com/agenticnotetaking/eidos.git ~/repos/eidos
+```
+
+Then in your `~/.bashrc` or `~/.zshrc`:
+
+```bash
+export EIDOS_DIR="$HOME/repos/eidos"
+
+eidos() {
+  claude --plugin-dir "$EIDOS_DIR" "$@"
+}
+
+eidos-auto() {
+  claude --dangerously-skip-permissions --plugin-dir "$EIDOS_DIR" "$@"
+}
+```
+
+Adjust the path if you cloned elsewhere. `eidos-auto` skips permission prompts — only use it in directories you trust.
+
 ## Skills
 
 Run `/eidos:help` for the full list. Highlights by category:

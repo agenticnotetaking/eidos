@@ -239,6 +239,7 @@ eidos/                          # the plugin repo
     toclaude/
     toeidos/
     config/
+    video/
   inject/
     core.md                     # always-loaded plugin rules
     feature/
@@ -327,6 +328,7 @@ Each skill has its own spec in `eidos/skills/`:
 - [[spec - toclaude skill - adjust claude md to steer behaviour]]
 - [[spec - toeidos skill - routes insights into specs and claims]]
 - [[spec - config - toggleable project settings]]
+- [[spec - video skill - outline driven manim pipeline from topic to merged render]]
 
 ### Scripts
 
