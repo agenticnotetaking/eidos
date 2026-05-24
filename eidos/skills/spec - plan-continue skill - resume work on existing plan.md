@@ -19,6 +19,7 @@ This skill handles that handoff.
 - Loads linked specs, goals, and learnings before resuming
 - Presents current state and next action for user confirmation
 - Continues with normal action loop after confirmation
+- Treats the plan as best-effort during execution: surfaces genuine issues with an action, proposes options or plan edits, and escalates underspecified work to `/eidos:research` or `/eidos:spec` rather than grinding through
 
 ## Design
 

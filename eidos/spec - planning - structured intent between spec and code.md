@@ -18,6 +18,7 @@ Planning deserves its own spec because it's more than a skill — it's a workflo
 - A plan produces a file in `memory/` that persists across sessions
 - The plan references specs for what should be built (linking intent to execution)
 - Plans are living documents — they evolve as implementation reveals new information
+- A plan is best-effort at planning time — agents are expected to challenge it during execution, not just follow it: surface genuine issues, propose options or plan edits, and escalate underspecified parts to `/eidos:research` or `/eidos:spec` rather than grinding through a flawed action
 - The action loop enforces discipline: implement → commit → update plan → commit plan → continue
 - Progress tracking is the session handoff mechanism — without it, the next session starts blind
 - Plans can be created from specs (formal, top-down) or from observations (organic, bottom-up)
@@ -139,6 +140,19 @@ The Adjustments section in the plan file captures these changes with timestamps.
 Don't delete history — add to it.
 A plan that evolved is more valuable than one that was perfect from the start.
 
+### Plans Are Best-Effort — Challenge Them
+
+A plan captures the best understanding *at planning time*, before implementation surfaces the messy details.
+Treat it as a strong default, not a contract: following an action blindly when it turns out wrong, underspecified, or built on a bad assumption wastes effort and bakes in the mistake.
+
+When an action doesn't hold up during execution:
+- **Surface it** — say what's wrong and why, at the next checkpoint, or immediately if it blocks progress.
+- **Propose options** — don't just stop; offer concrete alternatives or a plan edit for the human to choose.
+- **Escalate underspecification** — missing knowledge → suggest `/eidos:research`; unclear design intent → suggest `/eidos:spec`. Add the resulting work as a plan action rather than guessing.
+
+Correcting a plan mid-flight is expected and recorded in Adjustments — a plan that was corrected is healthier than one followed off a cliff.
+This is the agency principle applied to planning: the human steers, the plan is a tool, and surfacing reasoning beats silent compliance.
+
 ## Verification
 
 - Plans reference relevant specs in their Context section
@@ -161,3 +175,5 @@ A plan that evolved is more valuable than one that was perfect from the start.
 - [[spec - observe skill - capture testing observations mid plan]] — the `/eidos:observe` skill structures testing findings into plan entries
 - [[template - plan - structured phases with actions and progress tracking]] — defines plan file structure
 - [[spec - externalise - persist insights beyond the conversation]] — plans are one form of externalisation
+- [[spec - research skill - investigate and document findings with sources]] — escalation path when a plan action hits a knowledge gap
+- [[spec - spec skill - think through and create specs via structured dialogue]] — escalation path when a plan action is underspecified in design

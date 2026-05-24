@@ -68,5 +68,5 @@ Fix these first, or proceed if they're intentional.
 
 ## Output
 
-No files created or modified.
-This skill is read-only — it only reports.
+- Reports: git status, plan state, open todos, verdict
+- No other files created or modified

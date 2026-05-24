@@ -46,6 +46,7 @@ Eidos config (.eidos-config.yaml):
   context_tracking_max: 200000    # max tokens for context window tracking (null to disable)
   mono_focus: true                # mono-repo sub-part focus injection at session start
   observation_images: true        # persist pasted images as named observation files in memory/
+  ping_macos: ""                  # path to eidos-ping-app binary (macOS opt-in); empty disables /eidos:ping
 
 Change which? (e.g., "git_workflow", "context_tracking_max 100000")
 ```
@@ -64,6 +65,7 @@ If a specific key was provided as argument, show only that setting and its descr
 | `context_tracking_max` | `200000` | int/null | Max tokens for context tracking; `null` to disable |
 | `mono_focus` | `true` | bool | Mono-repo sub-part focus injection at session start (reads external mapping) |
 | `observation_images` | `true` | bool | Persist pasted images as named observation files in `memory/` |
+| `ping_macos` | _(empty)_ | string | Path to the eidos-ping-app binary (macOS opt-in); empty disables `/eidos:ping` |
 | `git_root` | _(omitted)_ | string | Relative path to parent `.git` directory (for nested projects) |
 | `git_prefix` | _(omitted)_ | string | Branch name prefix (for nested projects) |
 
@@ -105,6 +107,8 @@ context_tracking_max: 200000
 mono_focus: true
 # persist pasted images as named observation files in memory/
 observation_images: true
+# path to eidos-ping-app binary (macOS opt-in); empty disables /eidos:ping
+ping_macos: ""
 ```
 
 Comments are preserved when changing values.

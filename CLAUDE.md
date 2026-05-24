@@ -17,8 +17,8 @@ Not everything here ships to consumers:
 
 - `memory/` — dev-only (plans, sessions, decisions for building eidos itself)
 - `CLAUDE.md` — dev-only (rules for working in this repo)
-- `scripts/release.sh`, `skills/release/`, `TWEET.md`, `INSTALL.md` — dev-only
-- `inject/core.md` — consumer-facing (injected into every project that uses the plugin)
+- `scripts/release.sh`, `scripts/check_session_budget.sh`, `skills/release/`, `TWEET.md`, `INSTALL.md` — dev-only
+- `inject/core/` — consumer-facing (injected into every project that uses the plugin; split into budget-sized section files)
 - `eidos/`, `skills/`, `templates/` — consumer-facing (shipped as the plugin)
 
 `scripts/release.sh` rsyncs to the downstream repo, filtering out dev-only files.

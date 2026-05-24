@@ -29,6 +29,13 @@ fi
 # Extract value after the colon, trim whitespace and inline comments
 VALUE=$(echo "$LINE" | sed 's/^[^:]*:\s*//' | sed 's/\s*#.*//' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
 
+# Strip surrounding double or single quotes (YAML allows both forms for
+# strings; consumers shouldn't have to handle the distinction).
+case "$VALUE" in
+    \"*\") VALUE="${VALUE#\"}"; VALUE="${VALUE%\"}" ;;
+    \'*\') VALUE="${VALUE#\'}"; VALUE="${VALUE%\'}" ;;
+esac
+
 if [ -z "$VALUE" ]; then
     echo "$DEFAULT"
     exit 0

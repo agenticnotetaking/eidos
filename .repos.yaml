@@ -1,0 +1,4 @@
+# Optional companion repositories. Tools (e.g. scripts/ping.sh) read this to
+# point users at install sources when they reference an opt-in feature whose
+# binary isn't installed yet.
+ping_macos: git@github.com:ltOgt/eidos-ping-macos.git

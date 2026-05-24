@@ -17,7 +17,7 @@ Update CLAUDE.md or specs to correct undesired behaviour.
 
 1. Understand the correction — what went wrong, what should happen instead
 2. Identify the right location:
-   - **`inject/core.md`** — plugin rules that apply to all eidos projects
+   - **`inject/core/*.md`** — plugin rules that apply to all eidos projects (pick the matching section file)
    - **`inject/feature/*.md`** — rules tied to a config-gated feature
    - **CLAUDE.md** — project-specific rules (not plugin-wide)
    - **Specific spec** — scoped rules that apply to one area

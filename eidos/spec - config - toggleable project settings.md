@@ -43,6 +43,8 @@ context_tracking_max: 200000
 mono_focus: true
 # persist pasted images as named observation files in memory/
 observation_images: true
+# path to the eidos-ping-app binary (macOS opt-in); empty disables /eidos:ping
+ping_macos: ""
 
 # nested project git (only when applicable)
 git_root: ../..
@@ -68,6 +70,7 @@ git_prefix: my-experiment
 | `context_tracking_max` | `200000` | int/null | Max token count for context tracking; `null` to disable |
 | `mono_focus` | `true` | bool | Mono focus injection at session start (reads external mapping) |
 | `observation_images` | `true` | bool | Persist pasted images as named observation files in `memory/` |
+| `ping_macos` | _(empty)_ | string | Path to the eidos-ping-app binary (macOS opt-in); empty disables `/eidos:ping` |
 | `git_root` | _(omitted)_ | string | Relative path to parent `.git` directory (nested projects only) |
 | `git_prefix` | _(omitted)_ | string | Branch name prefix (nested projects only) |
 
@@ -118,6 +121,7 @@ Skills that depend on optional behaviour should check config early:
 - [[spec - nested projects - sub-project isolation with shared git]] — adds string config entries for nested git
 - [[spec - context tracking - hook injects context usage for session awareness]] — adds `context_tracking_max` setting
 - [[spec - mono skill - register working subdirectory focus in monorepo]] — adds `mono_focus` setting
+- [[spec - ping skill - agent surfaces status via os notification]] — adds `pings` setting
 
 ## Mapping
 

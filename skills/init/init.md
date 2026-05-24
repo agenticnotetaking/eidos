@@ -65,6 +65,8 @@ context_tracking_max: 200000
 mono_focus: true
 # persist pasted images as named observation files in memory/
 observation_images: true
+# path to eidos-ping-app binary (macOS opt-in); empty disables /eidos:ping
+ping_macos: ""
 ```
 
 Use the format from [[skills/config/config.md]] §5.

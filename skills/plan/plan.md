@@ -129,6 +129,10 @@ If the plan isn't updated, the next session has no idea what happened.
 
 Plans can and should be adjusted as work progresses.
 
+The plan is best-effort at the time of planning — a strong default, not a contract.
+If an action proves wrong, underspecified, or based on a bad assumption during implementation, surface it and propose a plan edit or options rather than grinding through it.
+When the gap is missing knowledge, suggest `/eidos:research`; when it's unclear design, suggest `/eidos:spec` — add the result as a plan action instead of guessing.
+
 When adjustments are needed:
 1. Document the change in Adjustments with timestamp and reason
 2. Update the Phases/Actions as needed

@@ -19,6 +19,7 @@ The plan skill gathers context, structures work into phases and actions, and pro
 - Creates `memory/plan - <timestamp> - <claim>.md` using [[template - plan - structured phases with actions and progress tracking]]
 - Commits the plan file
 - Offers next steps: start working, adjust, or save for later
+- Treats the plan as best-effort: during execution, surfaces genuine issues, proposes options or plan edits, and escalates underspecified work to `/eidos:research` or `/eidos:spec` rather than following a flawed plan
 
 ## Design
 

@@ -241,7 +241,10 @@ eidos/                          # the plugin repo
     config/
     video/
   inject/
-    core.md                     # always-loaded plugin rules
+    core/                       # always-loaded plugin rules (split into budget-sized section files)
+      01-principles.md
+      02-conventions.md
+      03-workflow.md
     feature/
       git-workflow.md           # config: git_workflow
       status-reporting.md       # config: status_reporting

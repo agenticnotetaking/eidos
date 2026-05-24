@@ -20,7 +20,10 @@ Compact is lighter: a read-only check that says "safe to go" or "fix these first
 
 ## Design
 
-Read-only — creates no files, modifies nothing.
+Almost entirely read-only — the one write is deleting this session's agent registration file (if any).
+The registration describes an *active* agent; compact is the signal that the agent is winding down, so the file should not outlive the session.
+Matching is by frontmatter `branch:` + `cwd:` — robust against context compaction forgetting the original UID.
+
 The lightest possible "are we done?" signal.
 
 Compact and done serve different moments:

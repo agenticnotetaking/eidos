@@ -42,7 +42,7 @@ status: active
 
 ## Adjustments
 
-<!-- Plans evolve. Document changes with timestamps. -->
+_Plans are best-effort at planning time — challenge the plan as implementation reveals issues, propose edits, and record changes below with timestamps (don't delete history)._
 
 ## Progress Log
 
@@ -119,6 +119,7 @@ Created files are tracked inline with `=>` rather than in a separate section.
 - Timestamped entries when the plan changes
 - Brief reason for the change
 - Don't delete history — add to it
+- The plan is best-effort — if an action proves wrong or underspecified during implementation, surface it and adjust (propose options, or escalate to `/eidos:research`/`/eidos:spec`) rather than following it blindly
 
 **Progress Log:**
 - Updated after every completed action (this is part of the action, not optional cleanup)

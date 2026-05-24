@@ -111,6 +111,8 @@ Action loop:
 implement → verify each sub-bullet → commit code → update plan ([x] or [ ] with => notes, Progress Log) → commit plan → continue?
 ```
 
+**The plan is best-effort.** If an action turns out wrong, underspecified, or based on a bad assumption, don't grind through it — surface the issue, propose a plan edit or concrete options, and let the human steer. When the gap is missing knowledge, suggest `/eidos:research`; when it's unclear design, suggest `/eidos:spec`. Record the change in the plan's Adjustments. Correcting a plan mid-flight is expected, not a deviation.
+
 ### 6. Quick Continuation
 
 After completing each action:
